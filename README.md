@@ -26,7 +26,13 @@ For both matches and non-matches, a **custom_response_key** parameter (found in 
 
 ## Tested Sample Inquiries
 
-**Availability of items**
+**Introduction**
+
+1st Chatbot Response | User Inquiry | 2nd Chatbot Response |
+| ----------- | ----------- | ----------- |
+| Hello. What is your full name? | My name is Mandy Roco. | Hello Mandy Roco! I am Mr. Kex, your assistant to help you in introducing to Karinderya Express, your one-stop shop to all of the classic Filipino karinderya favorites. <br><br>We currently have Pork Adobo, Sinigang na Bangus, and Tortang Talong for our ulams. White rice is on the side. <br><br> Can I take your order? |
+
+**Checking availability of items**
 
 | User Inquiry | Chatbot Response |
 | ----------- | ----------- |
@@ -34,7 +40,7 @@ For both matches and non-matches, a **custom_response_key** parameter (found in 
 | Is your *pork adobo* available? | There are 2 servings of *pork adobo* available |
 | Do you have *sinigang* available? | Sorry, we're out of *Sinigang na Bangus*.
 
-**Price of items**
+**Checking price of items**
 | User Inquiry | Chatbot Response |
 | ----------- | ----------- |
 | How much is your *sinigang*? | It costs 40 pesos. |
@@ -46,6 +52,12 @@ For both matches and non-matches, a **custom_response_key** parameter (found in 
 | ----------- | ----------- |
 | What did I ordered so far? | You ordered: 1x *Sinigang na Bangus*, 1x *Tortang Talong* and 1x white rice. |
 | Can you recap to me what I ordered? | You ordered: 2x *Pork Adobo*, 1x *Sinigang na Bangus* and 2x white rice. |
+
+**Placing orders**
+
+| User Inquiry | Chatbot Response |
+| ----------- | ----------- |
+| I would like to order 2 cups of sinigang and 1 pork adobo. | Okay. Anything else? |
 
 ## Limitations
 
