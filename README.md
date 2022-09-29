@@ -66,10 +66,10 @@ For both matches and non-matches, a **custom_response_key** parameter (found in 
 - Customer can add items to an order through Mr. Kex, but not remove or change existing ones
 ## To-do
 
-- Implement and test the following:
-    - [ ]  CX Routes for follow-up questions
-    - [ ]  Providing only the total cost of the items ordered
-    - [ ]  Sending an order to Firestore
-    - [ ]  Removing items in an order
-    - [ ]  Changing items in an order
+Implement and test the following:
+- [ ]  CX Routes for follow-up questions
+- [ ]  Providing only the total cost of the items ordered
+- [ ]  Sending an order to Firestore
+- [ ]  Removing items in an order
+- [ ]  Changing items in an order
 - [ ]  Resolve the fourth to the last limitation, if possible
