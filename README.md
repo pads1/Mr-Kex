@@ -81,5 +81,5 @@ For both matches and non-matches, a **custom_response_key** parameter (found in 
 - [ ]  Sending an order to Firestore
 - [ ]  Removing items in an order
 - [ ]  Changing items in an order
-- [ ]  Resolve the fifth to the last limitation, if possible
+- [ ]  Resolving complex inquiries (i.e. quantity+viand, quantity+viand+viand), if possible
 - [ ]  Testing with the UI integration
