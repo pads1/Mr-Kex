@@ -68,7 +68,7 @@ For both matches and non-matches, a **custom_response_key** parameter (found in 
     - *Kanin* (white rice)
 - Pickup only
 - English inquiries are only accepted
-- The following inquiries are not yet tested for the chatbot, but not necessarily will provide the most accurate answer:
+- The following types of inquiries are not yet tested for the chatbot, but not necessarily will provide the most accurate answer:
     - What is the cost of a serving of *torta* and 2 cups of white rice? (1 *torta* + 2 rice)
     - Do you have 1 cup of *adobo* and white rice available? (1 *adobo* + 1 rice)
     - I'll order 2 *pork adobo*, 3 *sinigang* and white rice. (3 white rice too?)
@@ -84,4 +84,5 @@ Implement and test the following:
 - [ ]  Sending an order to Firestore
 - [ ]  Removing items in an order
 - [ ]  Changing items in an order
-- [ ]  Resolve the fourth to the last limitation, if possible
+- [ ]  Resolve the fifth to the last limitation, if possible
+- [ ]  Testing with the UI integration
