@@ -73,14 +73,11 @@ For both matches and non-matches, a **custom_response_key** parameter (found in 
     - Do you have 1 cup of *adobo* and white rice available? (1 *adobo* + 1 rice)
     - I'll order 2 *pork adobo*, 3 *sinigang* and white rice. (3 white rice too?)
 - Unable to immediately message the Customer should KarinderyaExpress have no viands available
-- Unable to answer follow-up questions (i.e. How much is this item?)
-- Unable to answer questions regarding the total amount to be paid out
 - Customer can add items to an order through Mr. Kex, but not remove or change existing ones
 ## To-do
 
-Implement and test the following:
-- [ ]  CX Routes for follow-up questions
-- [ ]  Providing only the total cost of the items ordered
+- [x]  CX Routes for follow-up questions
+- [x]  Providing only the total cost of the items ordered
 - [ ]  Sending an order to Firestore
 - [ ]  Removing items in an order
 - [ ]  Changing items in an order
