@@ -68,7 +68,6 @@ For both matches and non-matches, a **custom_response_key** parameter (found in 
     - *Kanin* (white rice)
 - Pickup only
 - English inquiries are only accepted
-- Inquiries that ask for an item's availability and cost are not responded well by Mr. Kex
 - Unable to immediately message the Customer should KarinderyaExpress have no items available
 - Customer can add and remove items to an order through Mr. Kex, but not change existing ones
 - Some responses are not perfectly well-constructed
