@@ -72,6 +72,8 @@ For both matches and non-matches, a **custom_response_key** parameter (found in 
 - Unable to immediately message the Customer should KarinderyaExpress have no items available
 - Customer can add and remove items to an order through Mr. Kex, but not change existing ones
 - Some responses are not perfectly well-constructed
+- Follow-up questions are only responded well when it is in the same topic (i.e. availability of 1 *torta* and 1 rice, then availability of 1 *sinigang*), and not on the same menu item (i.e. availability of *torta*, then its cost)
+
 ## To-do
 
 - [x]  CX Routes for follow-up questions
