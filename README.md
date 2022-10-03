@@ -68,18 +68,15 @@ For both matches and non-matches, a **custom_response_key** parameter (found in 
     - *Kanin* (white rice)
 - Pickup only
 - English inquiries are only accepted
-- The following types of inquiries are not yet tested for the chatbot, but not necessarily will provide the most accurate answer:
-    - What is the cost of a serving of *torta* and 2 cups of white rice? (1 *torta* + 2 rice)
-    - Do you have 1 cup of *adobo* and white rice available? (1 *adobo* + 1 rice)
-    - I'll order 2 *pork adobo*, 3 *sinigang* and white rice. (3 white rice too?)
-- Unable to immediately message the Customer should KarinderyaExpress have no viands available
-- Customer can add items to an order through Mr. Kex, but not remove or change existing ones
+- Inquiries that ask for an item's availability and cost are not responded well by Mr. Kex
+- Unable to immediately message the Customer should KarinderyaExpress have no items available
+- Customer can add and remove items to an order through Mr. Kex, but not change existing ones
+- Some responses are not perfectly well-constructed
 ## To-do
 
 - [x]  CX Routes for follow-up questions
 - [x]  Providing only the total cost of the items ordered
-- [ ]  Sending an order to Firestore
-- [ ]  Removing items in an order
-- [ ]  Changing items in an order
-- [ ]  Resolving complex inquiries (i.e. quantity+viand, quantity+viand+viand), if possible
+- [x]  Sending an order to Firestore
+- [x]  Removing items in an order
+- [x]  Resolving complex inquiries (i.e. quantity+viand, quantity+viand+viand), if possible
 - [ ]  Testing with the UI integration
