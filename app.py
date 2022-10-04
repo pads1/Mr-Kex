@@ -1,5 +1,5 @@
 import json, os, random, re, pytz
-from flask import Flask, request, make_response
+from flask import Flask, request, make_response, send_from_directory
 from datetime import datetime
 from typing import Union
 from google.cloud import firestore
@@ -18,6 +18,11 @@ db = firestore.Client()
 
 orders = []
 order_counter = 1
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/favicon.png')
 
 def get_item_in_order(name: str):
     global orders
@@ -94,15 +99,19 @@ def send_order():
 def reset_values():
 
     json_data = request.get_json(silent=True, force=True)
-
     session_name = json_data['sessionInfo']['session']
     content = { 
-        "fulfillmentMessages": {
-            "payload": {
-                "message": "",
-                "platform": "kommunicate"
+       "fulfillment_response": {
+                "messages": [
+                    {
+                    }
+                ]
+            },
+            "session_info":{
+                "session": session_name,
+                "parameters":{
+                }
             }
-        }
     }
 
     try:
@@ -131,7 +140,6 @@ def webhook():
     val = doc.to_dict()
 
     payload = {}
-    payload['platform'] = "kommunicate"
 
     # check availability of items, assumes that it is only food items
     if "availability" in custom_response_key:
@@ -433,8 +441,6 @@ def webhook():
 
     content['fulfillment_response']['messages'].append({'payload' : payload})
     content['session_info'] = {"session": session_name}
-    content['platform'] = "kommunicate"
-
     # Send to Kommunicate
     res = json.dumps(content, indent=4)
     r = make_response(res)
@@ -455,7 +461,5 @@ def webhook():
 
 if __name__ == '__main__':
     orders = []
-    app.secret_key = "secret_key"
-    app.debug = True
     app.run(port=3000)
     
