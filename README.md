@@ -43,7 +43,7 @@ For both matches and non-matches, a **custom_response_key** parameter (found in 
 **Checking price of items**
 | User Inquiry | Chatbot Response |
 | ----------- | ----------- |
-| How much is your *sinigang*? | It costs 40 pesos. |
+| How much is 2 servings of torta? | 2 servings of *Tortang Talong* costs 40 pesos. |
 | How much is the cost of all your items in the menu? | Here are the prices of each item in the menu: Sinigang na Bangus - ₱50, Tortang Talong - ₱45, Pork Adobo - ₱40, White Rice - ₱10 |  
 
 **Current orders**
@@ -59,6 +59,10 @@ For both matches and non-matches, a **custom_response_key** parameter (found in 
 | ----------- | ----------- |
 | I would like to order 2 cups of sinigang and 1 pork adobo. | Okay. Anything else? |
 
+## Other features
+
+- Mr. Kex can alert the Customer when KaridenyaExpress is ran out of stock (but only after it asks for the customer's name)
+
 ## Limitations
 
 - Restaurant menu is limited to 4 items:
@@ -68,8 +72,8 @@ For both matches and non-matches, a **custom_response_key** parameter (found in 
     - *Kanin* (white rice)
 - Pickup only
 - English inquiries are only accepted
-- Unable to immediately message the Customer should KarinderyaExpress have no items available
-- Customer can add and remove items to an order through Mr. Kex, but not change existing ones
+- Mr. Kex would not remember the customer the next time he or she orders through it
+- The customer can add and remove items to an order through Mr. Kex, but not change existing ones
 - Some responses are not perfectly well-constructed
 - Follow-up questions are only responded well when it is in the same topic (i.e. availability of 1 *torta* and 1 rice, then availability of 1 *sinigang*), and not on the same menu item (i.e. availability of *torta*, then its cost)
 
