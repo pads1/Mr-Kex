@@ -45,17 +45,12 @@ def send_order():
     parameters = json_data['sessionInfo']['parameters']
 
     content = { 
-        "fulfillment_response": {
-            "messages": [
-                    {
-                    }
-                ]
-            },
-            "session_info":{
-                "session": session_name,
-                "parameters":{
-                }
+        "fulfillmentMessages": {
+            "payload": {
+                "message": "",
+                "platform": "kommunicate"
             }
+        }
     }
     print(json_data)
     parameters = json_data['sessionInfo']['parameters']
@@ -102,17 +97,12 @@ def reset_values():
 
     session_name = json_data['sessionInfo']['session']
     content = { 
-        "fulfillment_response": {
-            "messages": [
-                {
-                }
-                ]
-            },
-            "session_info":{
-                "session": session_name,
-                "parameters":{
-                }
+        "fulfillmentMessages": {
+            "payload": {
+                "message": "",
+                "platform": "kommunicate"
             }
+        }
     }
 
     try:
@@ -141,6 +131,7 @@ def webhook():
     val = doc.to_dict()
 
     payload = {}
+    payload['platform'] = "kommunicate"
 
     # check availability of items, assumes that it is only food items
     if "availability" in custom_response_key:
@@ -315,11 +306,13 @@ def webhook():
         if len(there_but_requested_for_more_orders) > 0:
             message = str(val['responses']['more-than-removed-item'])
             message = message.replace("<old-orders>", " and ".join([f"{item['req_stock']} {item['name']} "for item in there_but_requested_for_more_orders])) \
-                    .replace('new-orders', " and ".join([f"{item['actual_quantity']} {item['name']}" for item in there_but_requested_for_more_orders]) + "are" if len(there_but_requested_for_more_orders) > 1 else "is")
+                    .replace('new-orders', " and ".join([f"{item['actual_quantity']} {item['name']}" for item in there_but_requested_for_more_orders])) \
+                    .replace("<modifier>", " are " if len(there_but_requested_for_more_orders) > 1 else "is")
             chunks.append(message)
         if len(existing_orders) > 0:
             message = str(val['responses']['existing-order'])
-            message = message.replace("<orders>", " and ".join([f"{item['quantity']} {item['name']}" for item in existing_orders]) + "are" if len(existing_orders) > 1 else "is")
+            message = message.replace("<orders>", " and ".join([f"{item['quantity']} {item['name']}" for item in existing_orders])) \
+                    .replace("<modifier>", " are " if len(existing_orders) > 1 else "is")
             chunks.append(message)
 
         payload['text'] = ". ".join(chunks)
@@ -432,7 +425,22 @@ def webhook():
 
         else:
             payload['text'] = "\n".join([_ for _ in val['responses']])
+    
+    """
+    content = {}
+    content['fulfillment_response'] = {}
+    content['fulfillment_response']['messages'] = []
 
+    content['fulfillment_response']['messages'].append({'payload' : payload})
+    content['session_info'] = {"session": session_name}
+    content['platform'] = "kommunicate"
+
+    # Send to Kommunicate
+    res = json.dumps(content, indent=4)
+    r = make_response(res)
+
+    return r
+    """
     content = {}
     content['fulfillment_response'] = {}
     content['fulfillment_response']['messages'] = []
@@ -447,5 +455,7 @@ def webhook():
 
 if __name__ == '__main__':
     orders = []
+    app.secret_key = "secret_key"
+    app.debug = True
     app.run(port=3000)
     
